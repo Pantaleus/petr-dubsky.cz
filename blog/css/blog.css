@@ -1,0 +1,310 @@
+/* blog/css/blog.css - Styly specifické pro blog */
+
+/* Hlavní stránka blogu a detail článku */
+.blog-main, .blog-article-main {
+    padding-top: 100px; /* Kvůli fixnímu headeru */
+}
+
+.page-title {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 1.8rem; /* Větší než .section-title */
+    color: #FFFFFF;
+}
+.page-title::after { /* Můžeme použít stejné podtržení */
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background-color: #1DB954;
+    margin: 15px auto 0;
+}
+
+/* Seznam článků na blog/index.php */
+.articles-list {
+    display: grid;
+    gap: 40px;
+}
+
+/* Přepínač zobrazení */
+.view-toggle-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-bottom: 25px;
+    gap: 15px;
+}
+
+.view-toggle-label {
+    color: #B3B3B3;
+    font-size: 0.9rem;
+}
+
+.view-toggle-buttons {
+    display: flex;
+    background-color: #181818;
+    border-radius: 6px;
+    padding: 4px;
+    border: 1px solid #333;
+}
+
+.view-toggle-btn {
+    background: transparent;
+    border: none;
+    color: #888;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.85rem;
+    font-family: inherit;
+    transition: all 0.2s ease;
+}
+
+.view-toggle-btn:hover {
+    color: #fff;
+}
+
+.view-toggle-btn.active {
+    background-color: #2a2a2a;
+    color: #1DB954;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+/* Varianta B - Moderní Grid */
+.articles-list-grid {
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 30px;
+}
+
+.articles-list-grid .article-item {
+    padding: 25px;
+    border: 1px solid rgba(255,255,255,0.05);
+    background: linear-gradient(145deg, #1e1e1e, #141414);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.articles-list-grid .article-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    border-color: rgba(29, 185, 84, 0.3);
+}
+
+.articles-list-grid .article-item-title a {
+    font-size: 1.25rem;
+    line-height: 1.4;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.articles-list-grid .article-item-meta {
+    font-size: 0.8rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.articles-list-grid .article-item-meta span {
+    margin-right: 0;
+    background: rgba(255,255,255,0.05);
+    padding: 5px 12px;
+    border-radius: 20px;
+    color: #ccc;
+    display: flex;
+    align-items: center;
+    border: 1px solid rgba(255,255,255,0.05);
+}
+
+.articles-list-grid .article-item-excerpt p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.articles-list-grid .btn-small {
+    width: 100%;
+    margin-top: auto;
+    text-align: center;
+    justify-content: center;
+    display: inline-flex;
+    background-color: transparent;
+    border: 1px solid #333;
+    color: #fff;
+}
+.articles-list-grid .btn-small:hover {
+    background-color: #1DB954;
+    border-color: #1DB954;
+    color: #000;
+}
+
+.article-item {
+    background-color: #181818;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    display: flex;
+    flex-direction: column;
+}
+
+.article-item-title a {
+    color: #1DB954; /* Bílá pro titulky článků */
+    font-size: 1.4rem;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+.article-item-title a:hover {
+    color: #FFFFFF; /* Zelená při hoveru */
+}
+
+.article-item-meta {
+    font-size: 0.9rem;
+    color: #888;
+    margin-bottom: 15px;
+}
+.article-item-meta span {
+    margin-right: 10px;
+}
+
+.article-item-excerpt p {
+    margin-bottom: 20px;
+    color: #B3B3B3;
+    flex-grow: 1; /* Aby excerpt vyplnil prostor a tlačítko bylo dole */
+}
+
+.btn-small { /* Menší tlačítko pro "Read More" */
+    padding: 8px 18px;
+    font-size: 0.9rem;
+    align-self: flex-start; /* Zarovnání tlačítka doleva v itemu */
+}
+
+
+/* Detail článku na blog/article.php */
+.article-full {
+    background-color: #1C1C1C; /* Mírně odlišné pozadí pro obsah článku */
+    padding: 30px 40px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    max-width: 900px; /* Omezení šířky pro lepší čitelnost */
+    margin: 0 auto;
+}
+
+.article-full-header {
+    border-bottom: 1px solid #333;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+}
+
+.article-full-title {
+    font-size: 2.4rem; /* Větší titul pro detail článku */
+    color: #FFFFFF;
+    margin-bottom: 10px;
+}
+
+.article-full-meta {
+    font-size: 1rem;
+    color: #888;
+}
+.article-full-meta span {
+    margin-right: 15px;
+}
+
+.article-full-content {
+    color: #D0D0D0; /* Mírně světlejší text pro lepší čitelnost obsahu */
+    line-height: 1.7;
+}
+
+.article-full-content h2,
+.article-full-content h3,
+.article-full-content h4 {
+    color: #1DB954; /* Zelené podnadpisy v článku */
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+}
+.article-full-content h2 { font-size: 1.8rem; }
+.article-full-content h3 { font-size: 1.5rem; }
+
+.article-full-content p {
+    margin-bottom: 1.2em;
+}
+
+.article-full-content ul,
+.article-full-content ol {
+    margin-left: 20px; /* Odsazení seznamů */
+    margin-bottom: 1.2em;
+}
+.article-full-content li {
+    margin-bottom: 0.5em;
+}
+
+.article-full-content a {
+    /* color: #4CAF50; */ /* Můžeme použít stejnou zelenou nebo mírně jiný odstín pro odkazy v textu */
+    text-decoration: underline;
+}
+.article-full-content a:hover {
+    /* color: #66BB6A; */
+    text-decoration: none;
+}
+
+.article-full-content blockquote {
+    border-left: 4px solid #1DB954;
+    margin: 1.5em 0;
+    padding: 0.5em 20px;
+    background-color: #222;
+    font-style: italic;
+    color: #ccc;
+}
+
+.article-full-content code { /* Inline kód */
+    background-color: #2a2a2a;
+    color: #f0f0f0;
+    padding: 2px 5px;
+    border-radius: 3px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.9em;
+}
+.article-full-content pre { /* Bloky kódu */
+    background-color: #2a2a2a;
+    color: #f0f0f0;
+    padding: 15px;
+    border-radius: 5px;
+    overflow-x: auto; /* Horizontální scroll pro dlouhé řádky kódu */
+    margin-bottom: 1.2em;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.9em;
+    line-height: 1.4;
+}
+.article-full-content pre code {
+    padding: 0;
+    background-color: transparent;
+    border-radius: 0;
+}
+
+.article-navigation {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid #333;
+    text-align: center; /* Nebo flex pro odkazy vedle sebe */
+}
+
+.article-not-found {
+    text-align: center;
+    padding: 50px 0;
+}
+.article-not-found h2 {
+    color: #FFFFFF;
+    margin-bottom: 20px;
+}
+
+/* Responzivita pro blog */
+@media (max-width: 768px) {
+    .page-title { font-size: 2rem; }
+    .article-item-title a { font-size: 1.5rem; }
+    .article-full-title { font-size: 2rem; }
+    .article-full { padding: 20px; }
+}

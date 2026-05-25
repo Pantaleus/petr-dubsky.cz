@@ -1,0 +1,507 @@
+/* admin/css/admin_style.css */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f8; /* Světlejší pozadí */
+    color: #333;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.container { /* Můžeme použít i v adminu pro centrování obsahu */
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* --- Header Administrace --- */
+.admin-header {
+    background-color: #2c3e50; /* Tmavě modrošedá */
+    color: #ecf0f1; /* Světlá barva textu */
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+.admin-header h1 {
+    margin: 0;
+    font-size: 1.8em;
+    color: #fff;
+}
+.admin-header nav a {
+    color: #ecf0f1;
+    text-decoration: none;
+    margin-left: 20px;
+    padding: 5px 0;
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.3s ease;
+}
+.admin-header nav a:hover,
+.admin-header nav a.active {
+    color: #fff;
+    border-bottom-color: #3498db; /* Modrý akcent pro aktivní/hover */
+}
+
+/* --- Hlavní Obsah Administrace --- */
+.admin-main {
+    padding: 25px 30px;
+    background-color: #fff;
+    margin: 20px; /* Odsazení od okrajů */
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+.admin-main h2 {
+    margin-top: 0;
+    color: #2c3e50;
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 10px;
+    margin-bottom: 25px;
+    font-size: 1.6em;
+}
+
+/* --- Tlačítka --- */
+.btn-add-new,
+button[type="submit"],
+input[type="submit"] { /* Obecné tlačítko */
+    display: inline-block;
+    padding: 10px 18px;
+    background-color: #3498db; /* Modrá */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 0.95em;
+    transition: background-color 0.2s ease;
+    margin-bottom: 20px; /* Odsazení pro btn-add-new */
+}
+.btn-add-new:hover,
+button[type="submit"]:hover,
+input[type="submit"]:hover {
+    background-color: #2980b9; /* Tmavší modrá */
+}
+
+button[name="save_ebook"], 
+button[name="save_article"] { /* Specifické pro ukládací tlačítka */
+    background-color: #2ecc71; /* Zelená pro uložení */
+}
+button[name="save_ebook"]:hover,
+button[name="save_article"]:hover {
+    background-color: #27ae60; /* Tmavší zelená */
+}
+
+
+/* --- Tabulky --- */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    font-size: 0.95em;
+}
+table th, table td {
+    border: 1px solid #e0e0e0;
+    padding: 10px 12px;
+    text-align: left;
+    vertical-align: middle;
+}
+table th {
+    background-color: #f9f9f9;
+    font-weight: bold;
+    color: #555;
+}
+table tr:nth-child(even) {
+    background-color: #fdfdfd;
+}
+table td a {
+    margin-right: 8px;
+    color: #3498db;
+    text-decoration: none;
+}
+table td a:hover {
+    text-decoration: underline;
+}
+table td a[onclick*="confirm"] { /* Odkaz pro smazání */
+    color: #e74c3c; /* Červená */
+}
+table td a[onclick*="confirm"]:hover {
+    color: #c0392b; /* Tmavší červená */
+}
+
+
+/* --- Formuláře --- */
+form fieldset {
+    border: 1px solid #dce4ec;
+    padding: 20px;
+    margin-bottom: 25px;
+    border-radius: 4px;
+    background-color: #fdfdff;
+}
+form legend {
+    font-weight: bold;
+    padding: 0 10px;
+    font-size: 1.2em;
+    color: #333;
+}
+form div, form .form-group { /* .form-group pro konzistenci, pokud ho použijete */
+    margin-bottom: 15px;
+}
+form label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 600;
+    color: #444;
+}
+form input[type="text"],
+form input[type="date"],
+form input[type="email"], /* Přidáno pro formulář e-booku */
+form input[type="password"], /* Pro login */
+form textarea,
+form select {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; 
+    font-size: 0.95em;
+    color: #333;
+}
+form input[type="file"] {
+    padding: 8px 0;
+}
+form textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+form input[type="text"]:focus,
+form input[type="date"]:focus,
+form input[type="email"]:focus,
+form input[type="password"]:focus,
+form textarea:focus,
+form select:focus {
+    border-color: #3498db;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+}
+form small {
+    display: block;
+    font-size: 0.85em;
+    color: #777;
+    margin-top: 4px;
+}
+form .current-file { 
+    font-style: italic; 
+    color: #555; 
+    font-size: 0.9em; 
+    margin-left: 10px;
+}
+form .current-file img {
+    max-height: 40px; 
+    vertical-align: middle; 
+    margin-left: 5px;
+    border: 1px solid #eee;
+}
+
+/* --- Zprávy (Success/Error) --- */
+.message {
+    padding: 12px 18px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    text-align: center;
+    font-weight: 500;
+}
+.message.success, .success-message { /* Podpora obou názvů tříd */
+    color: #155724;
+    background-color: #d4edda;
+    border: 1px solid #c3e6cb;
+}
+.message.error, .error-message {
+    color: #721c24;
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+}
+.message.info {
+    color: #0c5460;
+    background-color: #d1ecf1;
+    border: 1px solid #bee5eb;
+}
+
+
+/* --- Taby pro editaci (pokud je použijete) --- */
+.tabs {
+    margin-bottom: 0; /* Odebereme margin, protože tabcontent má border-top:none */
+    overflow: hidden; /* Pro clearfix */
+}
+.tabs button.tablink { 
+    padding: 10px 15px; 
+    cursor: pointer; 
+    border: 1px solid #ccc; 
+    border-bottom: none; /* Spodní border bude na aktivním tabu */
+    background-color: #e9e9e9; 
+    margin-right: 2px; 
+    border-radius: 4px 4px 0 0;
+    outline: none;
+}
+.tabs button.tablink.active { 
+    background-color: #fff; 
+    border-bottom: 1px solid #fff; /* Aby splynul s obsahem */
+    position: relative;
+    top: 1px; /* Malý posun dolů, aby překryl border tabcontentu */
+}
+.tabcontent { 
+    display: none; 
+    border: 1px solid #ccc; 
+    padding: 20px; 
+    background-color: #fff;
+}
+.tabcontent fieldset { /* Pokud fieldset je přímo v tabcontentu */
+    margin-top: 0;
+    border-top: none; /* Pokud má fieldset horní border, můžeme ho skrýt */
+}
+
+/* --- Analytický Dashboard (GoAccess Style) --- */
+.stats-page .admin-main {
+    background-color: transparent;
+    box-shadow: none;
+    padding: 0;
+}
+.analytics-filter-bar {
+    background: #fff;
+    padding: 15px 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.analytics-filter-bar form {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    gap: 15px;
+}
+.analytics-filter-bar label {
+    font-weight: 600;
+    margin-bottom: 0;
+    display: inline-block;
+}
+.analytics-filter-bar select {
+    width: auto;
+    display: inline-block;
+    padding: 8px 12px;
+}
+/* --- Analytický Dashboard (GoAccess Style) KPI Panels --- */
+.goaccess-panel-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 15px;
+    margin-bottom: 30px;
+    background: #1b1b24; /* Tmavé pozadí jako v GoAccess */
+    padding: 15px;
+    border-radius: 6px;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.5);
+}
+.ga-box {
+    background: #252538;
+    color: #e2e2e2;
+    padding: 15px;
+    border-radius: 4px;
+    border-top: 3px solid #5a5a7a;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+}
+.ga-box h3 {
+    font-size: 0.75rem;
+    color: #9c9cbb;
+    margin: 0 0 5px 0;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    border-bottom: none;
+    padding-bottom: 0;
+}
+.ga-box .ga-num {
+    font-size: 1.6rem;
+    margin: 0;
+    font-family: monospace, sans-serif;
+    color: #ffffff;
+}
+
+/* Fallback pro menší monitory a mobily (responktivita GoAccess mřížky) */
+@media (max-width: 1400px) {
+    .goaccess-panel-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+@media (max-width: 900px) {
+    .goaccess-panel-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media (max-width: 500px) {
+    .goaccess-panel-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+.charts-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+    margin-bottom: 30px;
+}
+.chart-container {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+.chart-container.large {
+    grid-column: 1 / -1;
+    height: 400px;
+}
+.chart-container h3 {
+    margin-top: 0;
+    color: #2c3e50;
+    font-size: 1.2em;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+.card {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+.table-grid .card {
+    overflow-x: auto;
+}
+.table-grid table {
+    margin-bottom: 0;
+}
+.table-grid th {
+    background-color: #f8f9fa;
+    color: #495057;
+}
+
+/* --- GoAccess Detailed Table (Návštěvnost v čase) --- */
+.goaccess-data-table-container {
+    margin-bottom: 30px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    border-radius: 4px;
+    overflow: hidden;
+}
+.goaccess-data-table-container .chart-container {
+    background: #1e1e2d;
+    border-bottom: 2px solid #5a5a7a;
+    box-shadow: none;
+}
+.ga-detailed-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: monospace, sans-serif;
+    font-size: 0.9em;
+}
+.ga-detailed-table th {
+    background-color: #1b1b24;
+    color: #9c9cbb;
+    padding: 12px 15px;
+    text-align: right;
+    border-bottom: 2px solid #5a5a7a;
+    font-size: 0.8em;
+    font-weight: bold;
+}
+.ga-detailed-table th:first-child {
+    text-align: center;
+    width: 60px;
+}
+.ga-detailed-table th:last-child {
+    text-align: right;
+}
+.ga-detailed-table td {
+    padding: 10px 15px;
+    text-align: right;
+    border-bottom: 1px solid #33334d;
+    color: #e2e2e2;
+}
+.ga-detailed-table td:first-child {
+    text-align: center;
+    font-weight: bold;
+    color: #fff;
+}
+.ga-detailed-table tr:hover td {
+    background-color: #2a2a40;
+}
+.ga-detailed-table tr.summary-row td {
+    background-color: #252538;
+    font-weight: bold;
+}
+.ga-detailed-table tr.summary-row td:first-child {
+    color: #9c9cbb;
+}
+
+/* --- Panel Options Dropdown --- */
+.btn-panel-options {
+    background: #252538;
+    border: 1px solid #5a5a7a;
+    color: #e2e2e2;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.85em;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.btn-panel-options:hover {
+    background: #33334d;
+}
+.panel-options-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    margin-top: 5px;
+    background: #1b1b24;
+    border: 1px solid #5a5a7a;
+    border-radius: 6px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+    width: 200px;
+    z-index: 100;
+    padding: 10px 0;
+}
+.panel-options-menu.hidden {
+    display: none;
+}
+.po-group {
+    padding: 10px 15px;
+    border-bottom: 1px solid #2a2a40;
+}
+.po-group:last-child {
+    border-bottom: none;
+}
+.po-label {
+    font-size: 0.7em;
+    color: #4da6ff;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+.po-group label {
+    display: block;
+    font-size: 0.85em;
+    color: #e2e2e2;
+    margin-bottom: 5px;
+    cursor: pointer;
+}
+.po-group label:last-child {
+    margin-bottom: 0;
+}
+.po-group input {
+    margin-right: 8px;
+    accent-color: #4da6ff;
+}

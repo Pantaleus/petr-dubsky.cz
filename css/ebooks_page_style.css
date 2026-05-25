@@ -1,0 +1,250 @@
+/* css/ebooks_page_style.css */
+
+.ebooks-main {
+    /* padding-top: 80px; */
+}
+
+.page-title-ebooks {
+    text-align: center;
+    font-size: 1.7rem; 
+    color: #FFFFFF;
+    margin-bottom: 40px;
+}
+.page-title-ebooks::after {
+    content: '';
+    display: block;
+    width: 70px;
+    height: 3px;
+    background-color: #1DB954; 
+    margin: 10px auto 0;
+}
+
+/* --- SEZNAM E-BOOKŮ --- */
+.ebook-list-section {
+    padding: 20px 0; /* Přidáme trochu odsazení pro sekci */
+}
+
+.ebook-list {
+    display: grid;
+    gap: 30px; 
+    grid-template-columns: 1fr; /* Každý e-book na nový řádek, pokud je jen jeden sloupec */
+    /* Pokud chcete více sloupců pro seznam, použijte: 
+       grid-template-columns: repeat(auto-fit, minmax(min_šířka_karty, 1fr)); 
+       A pak .ebook-item-summary by nemusel být display:flex pro layout obálka-vedle-textu
+    */
+}
+
+.ebook-item-summary {
+    background-color: #1e1e1e; 
+    padding: 20px 25px; 
+    border-radius: 8px;
+    display: flex;       
+    gap: 25px;           
+    align-items: flex-start; 
+    box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.ebook-item-summary:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(29, 185, 84, 0.2); 
+}
+
+.ebook-item-summary .ebook-cover-link {
+    flex: 0 0 auto;    
+    width: 130px;  /* Šířka obálky v seznamu */
+    max-width: 30%;    
+    display: block;
+    text-decoration: none;
+}
+
+img.ebook-cover-summary, 
+.ebook-item-summary .ebook-cover-placeholder {
+    width: 100%;      
+    height: auto;
+    aspect-ratio: 2 / 3; 
+    object-fit: cover; 
+    border-radius: 4px;
+    background-color: #2a2a2a; 
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+    color: #777; 
+    font-size: 0.8em; 
+}
+.ebook-item-summary .ebook-cover-placeholder span {
+    padding: 8px;
+    text-align: center;
+}
+
+.ebook-item-summary .ebook-summary-details {
+    flex-grow: 1; 
+    display: flex;
+    flex-direction: column; 
+}
+.ebook-item-summary .ebook-summary-details h3 {
+    margin-top: 0;
+    margin-bottom: 8px; 
+    font-size: 1.3rem; 
+}
+.ebook-item-summary .ebook-summary-details h3 a {
+    color: #1DB954; 
+    text-decoration: none;
+}
+.ebook-item-summary .ebook-summary-details h3 a:hover {
+    text-decoration: underline;
+}
+.ebook-item-summary .ebook-summary-details p { 
+    font-size: 0.9rem; 
+    color: #b3b3b3; 
+    line-height: 1.55;
+    margin-bottom: 15px;
+    flex-grow: 1; 
+}
+.ebook-item-summary .ebook-summary-details .btn-small {
+    align-self: flex-start; 
+    margin-top: auto; 
+}
+
+/* --- DETAIL E-BOOKU (STRÁNKA S FORMULÁŘEM) --- */
+.ebook-detail-section {
+    padding: 20px 0; /* Přidáme trochu odsazení pro sekci */
+}
+
+.ebook-item.ebook-detail-view {
+    background-color: #181818; /* Tmavší pro detail, aby vynikl */
+    padding: 30px 35px;
+    border-radius: 8px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.4);
+    display: flex;
+    flex-wrap: wrap; /* Povolí zalamování na menších obrazovkách */
+    gap: 30px; 
+    align-items: flex-start; 
+}
+
+.ebook-detail-view .ebook-cover-container {
+    flex: 0 0 auto; 
+    width: 280px;  /* Šířka kontejneru obálky v detailu - upravte podle potřeby */
+    max-width: 100%;   
+    margin-right: 25px; /* Mezera od textu, pokud není flex-wrap aktivní */
+}
+
+img.ebook-cover, 
+.ebook-detail-view .ebook-cover-placeholder {
+    width: 100%;      
+    height: auto;     
+    aspect-ratio: 2 / 3; 
+    object-fit: cover;   
+    border-radius: 6px;
+    display: block; 
+    background-color: #2a2a2a; 
+}
+.ebook-detail-view .ebook-cover-placeholder {
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+    color: #777;
+    font-size: 1.1em;
+    min-height: 300px; 
+}
+
+.ebook-detail-view .ebook-details {
+    flex-grow: 1;
+    flex-basis: 400px; 
+    min-width: 0; 
+}
+.ebook-detail-view .ebook-details h2 { 
+    color: #2ECC71; 
+    font-size: 1.9rem; 
+    font-weight: 600; 
+    margin-top: 0;
+    margin-bottom: 12px; 
+    line-height: 1.3;
+}
+.ebook-detail-view .ebook-description { 
+    color: #c0c0c0; 
+    line-height: 1.65;
+    margin-bottom: 30px; 
+    font-size: 0.9rem;
+}
+
+/* Formulář */
+.ebook-form .form-group { margin-bottom: 16px; }
+.ebook-form label { display: block; margin-bottom: 7px; font-weight: 500; color: #d0d0d0; font-size: 0.85rem; }
+.ebook-form input[type="text"],
+.ebook-form input[type="email"] {
+    width: 100%; padding: 11px 14px; border: 1px solid #444; 
+    background-color: #1f1f1f; color: #e0e0e0; border-radius: 5px; 
+    box-sizing: border-box; font-size: 0.95rem;
+}
+.ebook-form input[type="text"]:focus,
+.ebook-form input[type="email"]:focus {
+    border-color: #2ECC71; outline: none; 
+    box-shadow: 0 0 0 3px rgba(46, 204, 113, 0.25);
+}
+.ebook-form .consent-group input[type="checkbox"] { margin-right: 8px; vertical-align: middle; }
+.ebook-form .consent-group label { font-size: 0.8rem; font-weight: normal; display: inline; }
+.ebook-form button.btn-primary {
+    width: 100%; padding: 13px 20px; font-size: 1rem; font-weight: 600;
+    background-color: #2ECC71; border-color: #2ECC71; border-radius: 5px;
+    cursor: pointer; color: #fff; text-transform: uppercase; letter-spacing: 0.5px;
+}
+.ebook-form button.btn-primary:hover { background-color: #27ae60; border-color: #27ae60; }
+
+/* Zprávy formuláře */
+.form-message { padding: 12px 18px; margin-bottom: 20px; border-radius: 4px; text-align: center; font-weight: 500; }
+.form-message.success { color: #155724; background-color: #d4edda; border: 1px solid #c3e6cb; }
+.form-message.error { color: #721c24; background-color: #f8d7da; border: 1px solid #f5c6cb; }
+.form_message.info { color: #0c5460; background-color: #d1ecf1; border: 1px solid #bee5eb;}
+
+.back-to-list { margin-top: 25px; font-size: 0.9em; text-align: left; }
+.back-to-list a { color: #a0a0a0; text-decoration: none; }
+.back-to-list a:hover { color: #1DB954; text-decoration: underline; }
+
+/* Responzivita */
+@media (max-width: 860px) { 
+    .ebook-item.ebook-detail-view {
+        flex-direction: column; 
+        align-items: center; 
+    }
+    .ebook-detail-view .ebook-cover-container {
+        width: 80%; 
+        max-width: 300px; /* Upraveno */
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 30px; 
+        margin-right: 0; /* Zrušit pravý margin na mobilu */
+    }
+    .ebook-detail-view .ebook-details {
+        width: 100%; 
+        flex-basis: auto;
+    }
+    .ebook-detail-view .ebook-details h2 {
+        font-size: 1.7rem; /* Mírně větší */
+        text-align: center;
+    }
+}
+
+@media (max-width: 600px) { 
+    .ebook-item-summary {
+        flex-direction: column; 
+        align-items: center; 
+    }
+    .ebook-item-summary .ebook-cover-link {
+        width: 70%; 
+        max-width: 200px;
+        margin-bottom: 20px; /* Větší mezera */
+    }
+    .ebook-item-summary .ebook-summary-details h3,
+    .ebook-item-summary .ebook-summary-details p {
+        text-align: center;
+    }
+    .ebook-item-summary .ebook-summary-details .btn-small {
+        align-self: center; 
+    }
+}
+
+.no-ebooks-message { 
+    text-align: center;
+    padding: 30px 0;
+    color: #777;
+}

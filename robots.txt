@@ -1,0 +1,111 @@
+# robots.txt pro petr-dubsky.cz
+# Optimalizováno pro maximální SEO efekt
+
+# === HLAVNÍ PRAVIDLA PRO VŠECHNY ROBOTY ===
+User-agent: *
+
+# Povolujeme indexování všech hlavních stránek
+Allow: /
+Allow: /index.php
+Allow: /index.php?lang=cz
+Allow: /index.php?lang=it
+Allow: /index.php?lang=en
+Allow: /blog/
+Allow: /lang/
+Allow: /assets/
+Allow: /css/
+Allow: /scripts/
+
+# Blokujeme privátní a systémové složky
+Disallow: /config/
+Disallow: /includes/
+Disallow: /tmp/
+Disallow: /log/
+Disallow: /PHPMailer/
+Disallow: /vendor/
+Disallow: /node_modules/
+Disallow: /.git/
+Disallow: /.env
+Disallow: /backup/
+Disallow: /admin/
+
+# Blokujeme duplicitní obsah a query parametry
+Disallow: /*?print=
+Disallow: /*?utm_
+Disallow: /*?fb_
+Disallow: /*?gclid=
+Disallow: /*?ref=
+Disallow: /*&print=
+Disallow: /*&utm_
+Disallow: /*&fb_
+Disallow: /*&gclid=
+Disallow: /*&ref=
+
+# Blokujeme search a error stránky
+Disallow: /search?
+Disallow: /404.php
+Disallow: /error/
+
+# === SPECIFICKÁ PRAVIDLA PRO HLAVNÍ VYHLEDÁVAČE ===
+
+# Google Bot - maximální přístup
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+# Bing Bot
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 2
+
+# Yandex Bot
+User-agent: YandexBot
+Allow: /
+Crawl-delay: 2
+
+# === BLOKOVÁNÍ SPAM BOTŮ ===
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+User-agent: BLEXBot
+Disallow: /
+
+# === SOCIAL MEDIA BOTI (POVOLUJEME) ===
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
+
+User-agent: WhatsApp
+Allow: /
+
+User-agent: TelegramBot
+Allow: /
+
+# === SITEMAPS ===
+Sitemap: https://petr-dubsky.cz/sitemap.xml
+Sitemap: https://petr-dubsky.cz/blog-sitemap.xml
+
+# === POZNÁMKY ===
+# Soubor optimalizován pro:
+# - Maximální SEO indexování
+# - Ochrana citlivých dat
+# - Prevence duplicate content
+# - Blokování spam crawlerů
+# - Podpora multilanguage webu
+# 
+# Poslední update: 2025-06-02
+# Kontakt: pietro@petr-dubsky.cz
